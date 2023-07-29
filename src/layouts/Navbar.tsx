@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800">
+    <nav className="bg-gray-800 ">
       <div className=" max-[600px]:p-3  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <Link to='/' className="flex-shrink-0" >
           <h1 className="text-white">Book Catalog</h1>
