@@ -2,7 +2,8 @@
 import Layout from '@/layouts';
 import  { useState } from 'react';
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,11 +14,15 @@ const Login: React.FC = () => {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Here you can implement the logic for signing in with the provided email and password
     // For simplicity, we'll just log the credentials for now
+    console.log('Name:', name);
     console.log('Email:', email);
     console.log('Password:', password);
   };
@@ -27,8 +32,20 @@ const Login: React.FC = () => {
     <div className="flex items-center justify-center md:h-screen bg-gray-100 ">
       <div className="bg-white p-8 rounded-lg shadow-md
        md:w-1/3 w-full mx-4 my-4 md:my-0">
-        <h1 className="text-2xl font-semibold mb-6">Sign In</h1>
+        <h1 className="text-2xl font-semibold mb-6">Sign Up </h1>
         <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+              Name
+            </label>
+            <input
+              type="name"
+              id="name"
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500"
+              value={name}
+              onChange={handleNameChange}
+            />
+          </div>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
               Email
@@ -70,4 +87,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Register;

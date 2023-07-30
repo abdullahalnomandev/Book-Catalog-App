@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 ">
       <div className=" max-[600px]:p-3  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <Link to='/' className="flex-shrink-0" >
+        <Link to="/" className="flex-shrink-0">
           <h1 className="text-white">Book Catalog</h1>
         </Link>
 
@@ -19,23 +19,30 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="hidden md:block">
               <div className=" space-x-4 flex items-center justify-end h-16">
-                <Link to='/all-books'
+                <Link
+                  to="/all-books"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
                   All Books
                 </Link>
-                <a
-                  href="/signin"
+                <Link
+                  to="/add-new-book"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Sign In
-                </a>
-                <a
-                  href="/signup"
+                  Add New Book
+                </Link>
+                <Link
+                  to="/login"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/sign-up"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Sign Up
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -89,24 +96,30 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="/"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          <Link
+            to="/all-books"
+            className=" block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
           >
             All Books
-          </a>
-          <a
-            href="/signin"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          </Link>
+          <Link
+            to="/add-new-book"
+            className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
           >
-            Sign In
-          </a>
-          <a
-            href="/signup"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            Add New Book
+          </Link>
+          <Link
+            to="/login"
+            className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+          >
+            Login
+          </Link>
+          <Link
+            to="/sign-up"
+            className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
           >
             Sign Up
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
