@@ -9,6 +9,7 @@ const productApi = api.injectEndpoints({
     singleBook: builder.query({
       query: (id) => `/product/${id}`,
     }),
+    
 
     postBook: builder.mutation({
       query: ({ id, data }) => ({
