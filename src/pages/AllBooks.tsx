@@ -255,6 +255,8 @@ const AllBooks = () => {
     new Set(booksData?.data?.map((book: IBook) => book.publicationDate))
   );
 
+
+  
   return (
     <Layout>
       <div className="container mx-auto py-8">
