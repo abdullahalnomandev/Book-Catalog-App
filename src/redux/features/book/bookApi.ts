@@ -1,33 +1,41 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { api } from "@/redux/api/apiSlice";
 
-const productApi = api.injectEndpoints({
+const bookApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getBook: builder.query({
-      query: () => `books`,
+    getLatestBook: builder.query({
+      query: () => `/books?page=1&limit=10`,
+      providesTags: ["books"]
+    }),
+
+    getBooks: builder.query({
+      query: (searchAndFilterTerms) => `books?${searchAndFilterTerms}`,
+      providesTags: ["books"]
     }),
 
     singleBook: builder.query({
-      query: (id) => `/product/${id}`,
+      query: (id: string) => `/product/${id}`
     }),
-    
 
     postBook: builder.mutation({
-      query: ({ id, data }) => ({
-        url: `/book/${id}`,
-        method: 'POST',
-        body: data,
+      query: ({ data }) => ({
+        url: `/books`,
+        method: "POST",
+        body: data
       }),
-      invalidatesTags: ['books'],
+      invalidatesTags: ["books"]
     }),
-    
+
     getComments: builder.query({
-      query: (id) => `/comment/${id}`,
-      providesTags: ['books'],
-    }),
-  }),
+      query: (id: string) => `/comment/${id}`,
+      providesTags: ["books"]
+    })
+  })
 });
 
 export const {
-  useGetBookQuery
-} = productApi;
+  useGetBooksQuery,
+  useGetLatestBookQuery,
+  usePostBookMutation
+} = bookApi;
 

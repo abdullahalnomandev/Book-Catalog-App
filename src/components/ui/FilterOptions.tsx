@@ -34,7 +34,7 @@ const FilterOptions = ({
             <option value="">All Years</option>
             {publicationYears.map((year: string) => (
               <option key={year} value={year}>
-                {year}
+                {new Date(year).getFullYear()}
               </option>
             ))}
           </select>

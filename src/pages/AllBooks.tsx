@@ -1,126 +1,126 @@
-const booksData = [
-  {
-    title:
-      "The Great Gatsby ami ki janina  ajtriejt5rt5kl54j6 oi4ujiotjqoij viiorujoi34",
-    author: "F. Scott Fitzgerald",
-    genre: "Fiction",
-    publication_date: "April 10, 1925",
-  },
-  {
-    title: "To Kill a Mockingbird",
-    author: "Harper Lee",
-    genre: "Fiction",
-    publication_date: "July 11, 1960",
-  },
-  {
-    title: "1984",
-    author: "George Orwell",
-    genre: "Dystopian Fiction",
-    publication_date: "June 8, 1949",
-  },
-  {
-    title: "Pride and Prejudice",
-    author: "Jane Austen",
-    genre: "Romance",
-    publication_date: "January 28, 1813",
-  },
-  {
-    title: "Harry Potter and the Sorcerer's Stone",
-    author: "J.K. Rowling",
-    genre: "Fantasy",
-    publication_date: "June 26, 1997",
-  },
-  {
-    title: "The Hobbit",
-    author: "J.R.R. Tolkien",
-    genre: "Fantasy",
-    publication_date: "September 21, 1937",
-  },
-  {
-    title: "Brave New World",
-    author: "Aldous Huxley",
-    genre: "Science Fiction",
-    publication_date: "October 18, 1949",
-  },
-  {
-    title: "The Catcher in the Rye",
-    author: "J.D. Salinger",
-    genre: "Fiction",
-    publication_date: "July 16, 1951",
-  },
-  {
-    title: "The Lord of the Rings: The Fellowship of the Ring",
-    author: "J.R.R. Tolkien",
-    genre: "Fantasy",
-    publication_date: "July 29, 1954",
-  },
-  {
-    title: "The Hunger Games",
-    author: "Suzanne Collins",
-    genre: "Science Fiction",
-    publication_date: "September 14, 2008",
-  },
-  {
-    title: "Frankenstein",
-    author: "Mary Shelley",
-    genre: "Gothic Fiction",
-    publication_date: "January 1, 1818",
-  },
-  {
-    title: "The Odyssey",
-    author: "Homer",
-    genre: "Epic Poetry",
-    publication_date: "8th century BCE",
-  },
-  {
-    title: "The Alchemist",
-    author: "Paulo Coelho",
-    genre: "Fiction",
-    publication_date: "1988",
-  },
-  {
-    title: "Alice's Adventures in Wonderland",
-    author: "Lewis Carroll",
-    genre: "Fantasy",
-    publication_date: "July 4, 1865",
-  },
-  {
-    title: "The Picture of Dorian Gray",
-    author: "Oscar Wilde",
-    genre: "Gothic Fiction",
-    publication_date: "July 1, 1890",
-  },
-  {
-    title: "The Great Expectations",
-    author: "Charles Dickens",
-    genre: "Fiction",
-    publication_date: "August 1861",
-  },
-  {
-    title: "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
-    author: "C.S. Lewis",
-    genre: "Fantasy",
-    publication_date: "October 16, 1950",
-  },
-  {
-    title: "The Road",
-    author: "Cormac McCarthy",
-    genre: "Post-apocalyptic Fiction",
-    publication_date: "September 26, 2006",
-  },
-  {
-    title: "The Kite Runner",
-    author: "Khaled Hosseini",
-    genre: "Fiction",
-    publication_date: "May 29, 2003",
-  },
-  {
-    title: "Moby-Dick",
-    author: "Herman Melville",
-    genre: "Adventure Fiction",
-    publication_date: "October 18, 1851",
-  },
-];
+// const booksData = [
+//   {
+//     title:
+//       "The Great Gatsby ami ki janina  ajtriejt5rt5kl54j6 oi4ujiotjqoij viiorujoi34",
+//     author: "F. Scott Fitzgerald",
+//     genre: "Fiction",
+//     publication_date: "April 10, 1925",
+//   },
+//   {
+//     title: "To Kill a Mockingbird",
+//     author: "Harper Lee",
+//     genre: "Fiction",
+//     publication_date: "July 11, 1960",
+//   },
+//   {
+//     title: "1984",
+//     author: "George Orwell",
+//     genre: "Dystopian Fiction",
+//     publication_date: "June 8, 1949",
+//   },
+//   {
+//     title: "Pride and Prejudice",
+//     author: "Jane Austen",
+//     genre: "Romance",
+//     publication_date: "January 28, 1813",
+//   },
+//   {
+//     title: "Harry Potter and the Sorcerer's Stone",
+//     author: "J.K. Rowling",
+//     genre: "Fantasy",
+//     publication_date: "June 26, 1997",
+//   },
+//   {
+//     title: "The Hobbit",
+//     author: "J.R.R. Tolkien",
+//     genre: "Fantasy",
+//     publication_date: "September 21, 1937",
+//   },
+//   {
+//     title: "Brave New World",
+//     author: "Aldous Huxley",
+//     genre: "Science Fiction",
+//     publication_date: "October 18, 1949",
+//   },
+//   {
+//     title: "The Catcher in the Rye",
+//     author: "J.D. Salinger",
+//     genre: "Fiction",
+//     publication_date: "July 16, 1951",
+//   },
+//   {
+//     title: "The Lord of the Rings: The Fellowship of the Ring",
+//     author: "J.R.R. Tolkien",
+//     genre: "Fantasy",
+//     publication_date: "July 29, 1954",
+//   },
+//   {
+//     title: "The Hunger Games",
+//     author: "Suzanne Collins",
+//     genre: "Science Fiction",
+//     publication_date: "September 14, 2008",
+//   },
+//   {
+//     title: "Frankenstein",
+//     author: "Mary Shelley",
+//     genre: "Gothic Fiction",
+//     publication_date: "January 1, 1818",
+//   },
+//   {
+//     title: "The Odyssey",
+//     author: "Homer",
+//     genre: "Epic Poetry",
+//     publication_date: "8th century BCE",
+//   },
+//   {
+//     title: "The Alchemist",
+//     author: "Paulo Coelho",
+//     genre: "Fiction",
+//     publication_date: "1988",
+//   },
+//   {
+//     title: "Alice's Adventures in Wonderland",
+//     author: "Lewis Carroll",
+//     genre: "Fantasy",
+//     publication_date: "July 4, 1865",
+//   },
+//   {
+//     title: "The Picture of Dorian Gray",
+//     author: "Oscar Wilde",
+//     genre: "Gothic Fiction",
+//     publication_date: "July 1, 1890",
+//   },
+//   {
+//     title: "The Great Expectations",
+//     author: "Charles Dickens",
+//     genre: "Fiction",
+//     publication_date: "August 1861",
+//   },
+//   {
+//     title: "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+//     author: "C.S. Lewis",
+//     genre: "Fantasy",
+//     publication_date: "October 16, 1950",
+//   },
+//   {
+//     title: "The Road",
+//     author: "Cormac McCarthy",
+//     genre: "Post-apocalyptic Fiction",
+//     publication_date: "September 26, 2006",
+//   },
+//   {
+//     title: "The Kite Runner",
+//     author: "Khaled Hosseini",
+//     genre: "Fiction",
+//     publication_date: "May 29, 2003",
+//   },
+//   {
+//     title: "Moby-Dick",
+//     author: "Herman Melville",
+//     genre: "Adventure Fiction",
+//     publication_date: "October 18, 1851",
+//   },
+// ];
 
 import Layout from "@/layouts";
 // import { Link } from "react-router-dom";
@@ -192,13 +192,30 @@ import Layout from "@/layouts";
 import { useState } from "react";
 import FilterOptions from "../components/ui/FilterOptions";
 import SearchBar from "../components/ui/Searchbar";
+import { useGetBooksQuery } from "@/redux/features/book/bookApi";
+import { IBook } from "@/types/books";
 
 const AllBooks = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
 
-  console.log(searchTerm, selectedYear, selectedGenre);
+  console.log("ST",searchTerm,"SY", selectedYear,"SG", selectedGenre);
+
+  
+  // let query = `searchTerm=${searchTerm}`;
+   const url = `searchTerm=${searchTerm}${selectedGenre !=="" ? `&genre=${selectedGenre}` : ""}${selectedYear !=="" ? `&publicationDate=${selectedYear}` : ""}`;
+
+  const {
+    data: booksData,
+    isError,
+    isSuccess,
+    isLoading
+  } = useGetBooksQuery(url);
+
+  // `searchTerm=${searchTerm}&genre=Fiction&publicationDate=2023-07-31T00:00:00.000Z`
+
+console.log("QUERY", url);
 
   // Function to handle search by title, author, or genre
   const handleSearch = (value: string) => {
@@ -206,7 +223,7 @@ const AllBooks = () => {
   };
 
   // Function to handle filtering by genre
-  const handleGenreFilter = (genre: string) => {
+  const handleGenreFilter = (genre: string ) => {
     setSelectedGenre(genre);
   };
 
@@ -228,9 +245,13 @@ const AllBooks = () => {
   //   setFilteredBooks(filtered);
   // }, [searchTerm, selectedGenre, selectedYear]);
 
-  const genres = Array.from(new Set(booksData.map((book) => book.genre)));
+  console.log(isError, isSuccess, isLoading);
+
+  const genres = Array.from(
+    new Set(booksData?.data?.map((book: IBook) => book?.genre))
+  );
   const publicationYears = Array.from(
-    new Set(booksData.map((book) => book.publication_date))
+    new Set(booksData?.data?.map((book: IBook) => book.publicationDate))
   );
 
   return (
@@ -246,36 +267,32 @@ const AllBooks = () => {
           />
         </div>
         <div className="grid grid-cols-12 ">
-          {booksData.map(
-            ({ title, author, genre }, index) => (
-              <div
-                className="col-span-12 m-4 sm:col-span-6 md:col-span-4 lg:col-span-3"
-                key={index}
-              >
-                <div className="  bg-gradient-to-br  from-slate-900 to-slate-700 rounded-lg shadow-lg p-6 mb-8">
-                    <h3 className=" text-xl font-bold text-white h-20">
-                      {title.length > 40 ? `${title.slice(0, 40)}...` : title}📚
-                    </h3>
-                  <p className="text-base text-gray-300 mb-2">
-                    Author: {author}
-                  </p>
-                  <p className="text-base text-gray-300 mb-2">Genre: {genre}</p>
-                  <p className="text-base text-gray-300 mb-4">
-                    Publication Date: 20 January 2022
-                  </p>
-                  <div className="mt-4 text-base text-gray-500 italic pb-4">
-                    "Expand your literary horizons 📚"
-                  </div>
-                  <div className="flex justify-end">
-                    <button className="bg-slate-900 w-full hover:bg-slate-600 text-white hover:text-white font-semibold py-2 px-4 border hover:border-transparent rounded">
-                      Read More
-                    </button>
-                  </div>
+          {booksData?.data?.map(({ title, author, genre, _id }: IBook) => (
+            <div
+              className="col-span-12 m-4 sm:col-span-6 md:col-span-4 lg:col-span-3"
+              key={_id}
+            >
+              <div className="  bg-gradient-to-br  from-slate-900 to-slate-700 rounded-lg shadow-lg p-6 mb-8">
+                <h3 className=" text-xl font-bold text-white h-20">
+                  {title.length > 40 ? `${title.slice(0, 40)}...` : title}📚
+                </h3>
+                <p className="text-base text-gray-300 mb-2">Author: {author}</p>
+                <p className="text-base text-gray-300 mb-2">Genre: {genre}</p>
+                <p className="text-base text-gray-300 mb-4">
+                  Publication Date: 20 January 2022
+                </p>
+                <div className="mt-4 text-base text-gray-500 italic pb-4">
+                  "Expand your literary horizons 📚"
                 </div>
-                {/* Add more books here */}
+                <div className="flex justify-end">
+                  <button className="bg-slate-900 w-full hover:bg-slate-600 text-white hover:text-white font-semibold py-2 px-4 border hover:border-transparent rounded">
+                    Read More
+                  </button>
+                </div>
               </div>
-            )
-          )}
+              {/* Add more books here */}
+            </div>
+          ))}
         </div>{" "}
       </div>
     </Layout>

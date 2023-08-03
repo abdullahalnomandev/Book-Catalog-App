@@ -1,9 +1,4 @@
 // BookForm.tsx
-
-import Layout from "@/layouts";
-import { useState } from "react";
-import toast, { Toaster } from 'react-hot-toast';
-
 interface Book {
   title: string;
   author: string;
@@ -11,26 +6,50 @@ interface Book {
   publicationDate: string;
 }
 
+import Layout from "@/layouts";
+import { usePostBookMutation } from "@/redux/features/book/bookApi";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
 const AddNewBook: React.FC = () => {
   const [bookData, setBookData] = useState<Book>({
     title: "",
     author: "",
     genre: "",
-    publicationDate: "",
+    publicationDate: ""
   });
+
+console.log(bookData);
+
+  const [postBook, { isLoading, isSuccess, isError }] = usePostBookMutation();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setBookData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // You can handle the form submission here, e.g., send data to the server
-    console.log("Submitted Book Data:", bookData);
-    toast.success('Book added successfully.');
-
+    const options = {
+      data: bookData
+    };
+    postBook(options);
+    setBookData({
+      title: "",
+      author: "",
+      genre: "",
+      publicationDate: ""
+    });
+    toast.success("Book Added successfully.");
   };
+
+
+  console.log(isLoading, isSuccess, isError);
+ 
+console.log(isSuccess,"isSuccess");
 
   return (
     <Layout>
@@ -42,8 +61,7 @@ const AddNewBook: React.FC = () => {
           <h3 className="ml-6 pb-2 text-2xl   font-extrabold  capitalize text-blue-900 mb-2 md:block hidden pt-3 ">
             Add New Book
           </h3>
-          <Toaster />
-
+          <Toaster position="top-center" reverseOrder={false} />
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
