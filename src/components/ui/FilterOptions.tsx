@@ -4,7 +4,7 @@ const FilterOptions = ({
   genres,
   publicationYears,
   handleGenreFilter,
-  handlePublicationYearFilter,
+  handlePublicationYearFilter
 }: any) => {
   return (
     <>

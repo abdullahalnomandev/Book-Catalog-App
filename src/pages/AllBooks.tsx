@@ -194,17 +194,15 @@ import FilterOptions from "../components/ui/FilterOptions";
 import SearchBar from "../components/ui/Searchbar";
 import { useGetBooksQuery } from "@/redux/features/book/bookApi";
 import { IBook } from "@/types/books";
+import { Link } from "react-router-dom";
 
 const AllBooks = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
 
-  console.log("ST", searchTerm, "SY", selectedYear, "SG", selectedGenre);
-
   // let query = `searchTerm=${searchTerm}`;
-  const url = `searchTerm=${searchTerm}${
-    selectedGenre !== "" ? `&genre=${selectedGenre}` : ""
+  const url = `searchTerm=${searchTerm}${selectedGenre !== "" ? `&genre=${selectedGenre}` : ""
   }${selectedYear !== "" ? `&publicationDate=${selectedYear}` : ""}`;
 
   const {
@@ -214,7 +212,6 @@ const AllBooks = () => {
     isLoading
   } = useGetBooksQuery(url);
 
-  // `searchTerm=${searchTerm}&genre=Fiction&publicationDate=2023-07-31T00:00:00.000Z`
 
   console.log("QUERY", url);
 
@@ -233,27 +230,11 @@ const AllBooks = () => {
     setSelectedYear(year);
   };
 
-  // Filter the books based on search term, genre, and publication year
-  // useEffect(() => {
-  //   const filtered = booksData.filter((book) => {
-  //     const titleMatch = book.title.toLowerCase().includes(searchTerm);
-  //     const authorMatch = book.author.toLowerCase().includes(searchTerm);
-  //     const genreMatch = !selectedGenre || book.genre === selectedGenre;
-  //     const yearMatch = !selectedYear || book.publication_date === selectedYear;
-  //     return titleMatch || authorMatch || genreMatch || yearMatch;
-  //   });
-
-  //   setFilteredBooks(filtered);
-  // }, [searchTerm, selectedGenre, selectedYear]);
 
   console.log(isError, isSuccess, isLoading);
 
-  const genres = Array.from(
-    new Set(booksData?.data?.map((book: IBook) => book?.genre))
-  );
-  const publicationYears = Array.from(
-    new Set(booksData?.data?.map((book: IBook) => book.publicationDate))
-  );
+  const genres = Array.from(new Set(booksData?.data?.map((book: IBook) => book?.genre)));
+  const publicationYears = Array.from(new Set(booksData?.data?.map((book: IBook) => book.publicationDate)));
 
 
   
@@ -288,9 +269,11 @@ const AllBooks = () => {
                   "Expand your literary horizons 📚"
                 </div>
                 <div className="flex justify-end">
-                  <button className="bg-slate-900 w-full hover:bg-slate-600 text-white hover:text-white font-semibold py-2 px-4 border hover:border-transparent rounded">
-                    Read More
-                  </button>
+                  <Link to={`/book/${_id}`}>
+                    <button className="bg-slate-900 w-full hover:bg-slate-600 text-white hover:text-white font-semibold py-2 px-4 border hover:border-transparent rounded">
+                      Read More
+                    </button>
+                  </Link>
                 </div>
               </div>
               {/* Add more books here */}

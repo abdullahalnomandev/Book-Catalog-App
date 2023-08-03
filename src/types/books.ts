@@ -5,3 +5,9 @@ export interface IBook {
   genre: string;
   publicationDate: string;
 }
+export interface IReview {
+
+  name: string;
+  review: string;
+  _id: string;
+}
