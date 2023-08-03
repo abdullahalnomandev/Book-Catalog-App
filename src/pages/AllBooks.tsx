@@ -200,11 +200,12 @@ const AllBooks = () => {
   const [selectedGenre, setSelectedGenre] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
 
-  console.log("ST",searchTerm,"SY", selectedYear,"SG", selectedGenre);
+  console.log("ST", searchTerm, "SY", selectedYear, "SG", selectedGenre);
 
-  
   // let query = `searchTerm=${searchTerm}`;
-   const url = `searchTerm=${searchTerm}${selectedGenre !=="" ? `&genre=${selectedGenre}` : ""}${selectedYear !=="" ? `&publicationDate=${selectedYear}` : ""}`;
+  const url = `searchTerm=${searchTerm}${
+    selectedGenre !== "" ? `&genre=${selectedGenre}` : ""
+  }${selectedYear !== "" ? `&publicationDate=${selectedYear}` : ""}`;
 
   const {
     data: booksData,
@@ -215,7 +216,7 @@ const AllBooks = () => {
 
   // `searchTerm=${searchTerm}&genre=Fiction&publicationDate=2023-07-31T00:00:00.000Z`
 
-console.log("QUERY", url);
+  console.log("QUERY", url);
 
   // Function to handle search by title, author, or genre
   const handleSearch = (value: string) => {
@@ -223,7 +224,7 @@ console.log("QUERY", url);
   };
 
   // Function to handle filtering by genre
-  const handleGenreFilter = (genre: string ) => {
+  const handleGenreFilter = (genre: string) => {
     setSelectedGenre(genre);
   };
 
@@ -294,6 +295,11 @@ console.log("QUERY", url);
             </div>
           ))}
         </div>{" "}
+        {!booksData?.data?.length && (
+          <div className="flex justify-center items-center ">
+            <h1 className="text-4xl text-gray-600">Data Not Found</h1>
+          </div>
+        )}
       </div>
     </Layout>
   );
