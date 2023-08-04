@@ -9,7 +9,7 @@ import { useAppSelector } from "@/redux/hook";
 import { IReview } from "@/types/books";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import { Link, useNavigate, useParams, useRoutes } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const BookDetails = () => {
   const parm = useParams();
@@ -24,9 +24,7 @@ const BookDetails = () => {
 
   const {
     data: bookDetails,
-    isLoading,
-    isError,
-    isSuccess
+    isLoading
   } = useSingleBookQuery(id);
   const [postReview, { isSuccess: isReviewSuccess }] = usePostReviewMutation(
     bookDetails?.data?.reviews?.review?._id

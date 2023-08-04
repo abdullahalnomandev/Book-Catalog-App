@@ -20,9 +20,7 @@ const Login: React.FC = () => {
     setPassword(e.target.value);
   };
 
-  // if (isError) {
-  //   toast.error(error?.data?.message);
-  // }
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
