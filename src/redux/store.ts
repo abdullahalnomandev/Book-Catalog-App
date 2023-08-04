@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { api } from './api/apiSlice';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
-
+import userReducer from './features/users/userSlice';
  const store = configureStore({
    reducer: {
-     //  book: productReducer,
+      user: userReducer,
      [api.reducerPath]: api.reducer
    },
    middleware: (getDefaultMiddleware) =>

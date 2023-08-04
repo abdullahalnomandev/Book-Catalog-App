@@ -78,7 +78,9 @@ import { Link } from "react-router-dom";
 const TopAddedBooks = () => {
   const { data: booksData, isLoading } = useGetLatestBookQuery(undefined);
   if (isLoading) {
-    return <div>Loading...</div>;
+    return<h1 className="text-3xl py-4 font-bold text-center  text-blue-600 animate-pulse">
+      Loading...
+    </h1>;
   }
 
   console.log(booksData);
@@ -91,7 +93,10 @@ const TopAddedBooks = () => {
       <div className="container mx-auto "></div>
       <div className="grid grid-cols-12 ">
         {booksData?.data?.map(
-          ({ title, author, genre, _id,publicationDate }: IBook, index: number) => (
+          (
+            { title, author, genre, _id, publicationDate }: IBook,
+            index: number
+          ) => (
             <div
               className="col-span-12 m-4 sm:col-span-6 md:col-span-4 lg:col-span-3"
               key={index}

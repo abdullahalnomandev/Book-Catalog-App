@@ -213,7 +213,6 @@ const AllBooks = () => {
   } = useGetBooksQuery(url);
 
 
-  console.log("QUERY", url);
 
   // Function to handle search by title, author, or genre
   const handleSearch = (value: string) => {
@@ -249,6 +248,11 @@ const AllBooks = () => {
             handleGenreFilter={handleGenreFilter}
             handlePublicationYearFilter={handlePublicationYearFilter}
           />
+          {isLoading && (
+            <h1 className="text-3xl py-4 font-bold text-center  text-blue-600 animate-pulse">
+              Loading...
+            </h1>
+          )}
         </div>
         <div className="grid grid-cols-12 ">
           {booksData?.data?.map(({ title, author, genre, _id }: IBook) => (
