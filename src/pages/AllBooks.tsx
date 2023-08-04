@@ -280,7 +280,7 @@ const AllBooks = () => {
           )}
         </div>
         <div className="grid grid-cols-12 ">
-          {booksData?.data?.map(({ title, author, genre, _id }: IBook) => (
+          {booksData?.data?.map(({ title, author, genre, _id ,publicationDate}: IBook) => (
             <div
               className="col-span-12 m-4 sm:col-span-6 md:col-span-4 lg:col-span-3"
               key={_id}
@@ -292,7 +292,7 @@ const AllBooks = () => {
                 <p className="text-base text-gray-300 mb-2">Author: {author}</p>
                 <p className="text-base text-gray-300 mb-2">Genre: {genre}</p>
                 <p className="text-base text-gray-300 mb-4">
-                  Publication Date: 20 January 2022
+                  Publication Date: {new Date(publicationDate).toDateString()}
                 </p>
                 <div className="mt-4 text-base text-gray-500 italic pb-4">
                   "Expand your literary horizons 📚"
