@@ -1,11 +1,11 @@
 import { signOut } from "@/redux/features/users/userSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { email, name, username } = useAppSelector((state) => state.user.user);
+  const { readingList,finishedList,whiteList } = useAppSelector((state) => state.book);
   const dispatch = useAppDispatch();
 
   console.log(email, name, username, "ok");
@@ -26,7 +26,6 @@ const Navbar = () => {
   const handleLogout = () => {
     sessionStorage.clear();
     dispatch(signOut());
-    toast.success("Logged out!");
     navigate("/");
   };
   return (
@@ -35,7 +34,66 @@ const Navbar = () => {
         <Link to="/" className="flex-shrink-0">
           <h1 className="text-white">Book Catalog</h1>
         </Link>
-        <Toaster position="top-center" reverseOrder={false} />
+        <nav className="bg-gray-900 text-white p-4">
+          <div className="flex items-center gap-3">
+            <Link to="/wish-books" className="relative cursor-pointer">
+              <svg
+                className="w-5 h-5 mr-2 bg-green-500 "
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4c4.4183 0 8 3.5817 8 8s-3.5817 8-8 8-8-3.5817-8-8 3.5817-8 8-8zm0 2c2.2091 0 4 1.7909 4 4s-1.7909 4-4 4-4-1.7909-4-4 1.7909-4 4-4z"
+                ></path>
+              </svg>
+              <span className="absolute top-0 right-0 p-1 bg-red-600 rounded-full text-xs">
+                {whiteList.length}
+              </span>
+            </Link>
+            <Link to="/reading-books" className="relative cursor-pointer">
+              <svg
+                className="w-5 h-5 mr-2 bg-red-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4.318a2.827 2.827 0 00-2 1.682 2.827 2.827 0 00-2-1.682c-2.64 0-4.828 2.271-4.828 5.02 0 3.588 5.01 7.815 8.186 10.152a.6.6 0 00.764 0c3.176-2.337 8.186-6.564 8.186-10.152 0-2.749-2.188-5.02-4.828-5.02zm-2.262 8.82l-.738-.715a.6.6 0 00-.847 0 .5.5 0 000 .707l1.284 1.242a.6.6 0 00.848 0l3.235-3.133a.5.5 0 000-.707.6.6 0 00-.847 0l-.738.715a1.8 1.8 0 01-2.548 0z"
+                ></path>
+              </svg>
+              <span className="absolute top-0 right-0 p-1 bg-red-600 rounded-full text-xs">
+                {readingList.length}
+              </span>
+            </Link>
+            <Link to="/finished-books" className="relative cursor-pointer">
+              <svg
+                className="w-5 h-5 mr-2 bg-purple-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4M7.835 4.697A9 9 0 1120.29 9.17l-2.1 2.1M9 10H6a2 2 0 00-2 2v4h10v-4a2 2 0 00-2-2h-3m-2 6h4"
+                />
+              </svg>
+              <span className="absolute top-0 right-0 p-1 bg-red-600 rounded-full text-xs">
+                {finishedList.length}
+              </span>
+            </Link>
+          </div>
+        </nav>
 
         <div className="">
           <div className="flex items-center">

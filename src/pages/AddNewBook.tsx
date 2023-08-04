@@ -1,6 +1,7 @@
 // BookForm.tsx
 interface Book {
   title: string;
+  username: string;
   author: string;
   genre: string;
   publicationDate: string;
@@ -8,20 +9,24 @@ interface Book {
 
 import Layout from "@/layouts";
 import { usePostBookMutation } from "@/redux/features/book/bookApi";
+import { useAppSelector } from "@/redux/hook";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const AddNewBook: React.FC = () => {
+ const { username } = useAppSelector((state) => state.user.user);
+
   const [bookData, setBookData] = useState<Book>({
     title: "",
     author: "",
     genre: "",
-    publicationDate: ""
+    publicationDate: "",
+    username
   });
 
-console.log(bookData);
 
   const [postBook, { isLoading, isSuccess, isError }] = usePostBookMutation();
+
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -41,7 +46,8 @@ console.log(bookData);
       title: "",
       author: "",
       genre: "",
-      publicationDate: ""
+      publicationDate: "",
+      username:""
     });
     toast.success("Book Added successfully.");
   };

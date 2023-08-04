@@ -5,6 +5,7 @@ import {
   usePostReviewMutation,
   useSingleBookQuery
 } from "@/redux/features/book/bookApi";
+import { useAppSelector } from "@/redux/hook";
 import { IReview } from "@/types/books";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
@@ -35,9 +36,8 @@ const BookDetails = () => {
     bookDetails?.data?.reviews?.review?._id
   );
 
-  console.log("bookdetails", bookDetails?.data);
+  const { name ,username} = useAppSelector((state) => state.user.user);
 
-  console.log(isLoading, isError, isSuccess);
 
   const handleDelete = () => {
     setShowConfirmation(true);
@@ -71,7 +71,7 @@ const BookDetails = () => {
     const reviewInfo = {
       reviewId: id,
       data: {
-        name: "Abdullah Al Noman",
+        name: name,
         review
       }
     };
@@ -126,20 +126,22 @@ const BookDetails = () => {
               </button>
             )}
 
-            <div className="flex justify-between mt-4">
-              <Link
-                to={`/book/edit/${bookDetails?.data?._id}`}
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
-              >
-                Edit Book
-              </Link>
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded-lg"
-                onClick={handleDelete}
-              >
-                Delete Book
-              </button>
-            </div>
+            {bookDetails?.data?.username === username && (
+              <div className="flex justify-between mt-4">
+                <Link
+                  to={`/book/edit/${bookDetails?.data?._id}`}
+                  className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                >
+                  Edit Book
+                </Link>
+                <button
+                  className="bg-red-500 text-white px-4 py-2 rounded-lg"
+                  onClick={handleDelete}
+                >
+                  Delete Book
+                </button>
+              </div>
+            )}
 
             {showConfirmation && (
               <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center">
